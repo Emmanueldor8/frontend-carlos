@@ -26,7 +26,7 @@ export default function Landing() {
             </h1>
 
             <img
-              src="/img/gastos.png"
+              src="/img/pedidos.png"
               alt="Gastos"
               width={800}
               height={400}
