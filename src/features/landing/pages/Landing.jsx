@@ -7,9 +7,7 @@ export default function Landing() {
     <>
       <Header />
 
-      {/* CONTENIDO */}
       <div style={{ marginTop: "80px" }}>
-        {/* HERO */}
         <section
           style={{
             padding: "100px 0",
@@ -77,7 +75,6 @@ export default function Landing() {
           </div>
         </section>
 
-        {/* FEATURES */}
         <section style={{ padding: "80px 0", background: "#f4f7f7" }}>
           <div className="container">
             <div className="row text-center">
@@ -139,7 +136,6 @@ export default function Landing() {
           </div>
         </section>
 
-        {/* CTA FINAL */}
         <section
           style={{
             background: "#031926",
@@ -156,18 +152,22 @@ export default function Landing() {
               Lleva un seguimiento inteligente de tus gastos diarios.
             </p>
 
-            <Link
-              to="/login"
+            <a
+              href="https://github.com/Emmanueldor8/frontend-carlos"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn mt-3"
               style={{
                 background: "#77ACA2",
                 color: "#031926",
                 borderRadius: "25px",
                 padding: "10px 25px",
+                textDecoration: "none",
+                display: "inline-block",
               }}
             >
-              Ir al sistema
-            </Link>
+              Ver repositorio en GitHub
+            </a>
           </div>
         </section>
       </div>
