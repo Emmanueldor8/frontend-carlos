@@ -140,17 +140,13 @@ export default function Landing() {
           style={{
             background: "#031926",
             color: "#fff",
-            padding: "80px 0",
+            padding: "100px 0",
           }}
         >
           <div className="container text-center">
-            <h2 className="fw-semibold">
-              Empieza a controlar tus finanzas hoy
+            <h2 className="fw-semibold mb-4" style={{ fontSize: "2.5rem" }}>
+              Repositorio
             </h2>
-
-            <p className="mt-3" style={{ color: "#9DBEBB" }}>
-              Lleva un seguimiento inteligente de tus gastos diarios.
-            </p>
 
             <a
               href="https://github.com/Emmanueldor8/frontend-carlos"
@@ -159,38 +155,37 @@ export default function Landing() {
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                gap: "10px",
-                padding: "12px 28px",
+                gap: "12px",
+                padding: "14px 32px",
                 borderRadius: "999px",
                 background:
-                  "linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05))",
-                backdropFilter: "blur(10px)",
+                  "linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05))",
+                backdropFilter: "blur(12px)",
                 border: "1px solid rgba(255,255,255,0.2)",
                 color: "#fff",
                 fontWeight: "500",
                 textDecoration: "none",
-                boxShadow: "0 8px 25px rgba(0,0,0,0.3)",
+                fontSize: "1.1rem",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
                 transition: "all 0.3s ease",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-3px) scale(1.03)";
-                e.currentTarget.style.boxShadow =
-                  "0 12px 30px rgba(0,0,0,0.4)";
+                e.currentTarget.style.transform =
+                  "translateY(-4px) scale(1.05)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "none";
-                e.currentTarget.style.boxShadow =
-                  "0 8px 25px rgba(0,0,0,0.3)";
               }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="22"
-                height="22"
+                width="24"
+                height="24"
                 fill="white"
                 viewBox="0 0 16 16"
               >
-                <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 
                 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
                 -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 
                 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 
@@ -199,10 +194,10 @@ export default function Landing() {
                 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 
                 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 
                 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 
-                8.01 0 0016 8c0-4.42-3.58-8-8-8z" />
+                8.01 0 0016 8c0-4.42-3.58-8-8-8z"
+                />
               </svg>
-
-              Ver código en GitHub
+              Ver en GitHub
             </a>
           </div>
         </section>
