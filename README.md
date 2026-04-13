@@ -1,18 +1,58 @@
-# React + Vite
+# Gestión Monetaria - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
 
-Currently, two official plugins are available:
+Aplicación web para el control y gestión de gastos diarios. Permite registrar, organizar y analizar gastos de manera simple y eficiente con una interfaz clara y moderna.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Características Principales
 
-## React Compiler
+- **Registro rápido**: Añade gastos fácilmente con monto, categoría y descripción.
+- **Control total**: Consulta, edita y elimina tus gastos en cualquier momento.
+- **Organización clara**: Visualiza tus gastos por categorías y mejora tu control financiero.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Instalación
 
-Note: This will impact Vite dev & build performances.
+1. Clona el repositorio.
+2. Navega a la carpeta `frontend`.
+3. Ejecuta `npm install` para instalar las dependencias.
 
-## Expanding the ESLint configuration
+## Ejecución
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Para desarrollo: `npm run dev`
+- Para construir: `npm run build`
+- Para vista previa: `npm run preview`
+
+## Tecnologías
+
+- **React**: Biblioteca para la construcción de interfaces de usuario.
+- **Vite**: Herramienta de construcción rápida para desarrollo web.
+- **Bootstrap**: Framework CSS para diseño responsivo.
+- **React Router DOM**: Para el enrutamiento en la aplicación.
+- **Vite Plugin PWA**: Para soporte de Progressive Web App.
+
+## Arquitectura / Encarpetado
+
+```
+src/
+├── features/
+│   ├── auth/
+│   │   ├── components/ (Header, Footer, etc.)
+│   │   └── pages/ (Login, ForgotPassword, etc.)
+│   ├── characters/ (posiblemente para personajes o módulos)
+│   ├── dashboard/
+│   └── landing/
+├── services/ (APIs y datos mock)
+├── App.jsx
+├── main.jsx
+└── index.css
+```
+
+## Screenshot de la Interfaz Gráfica
+
+![Interfaz de la aplicación](public/img/pedidos.png)
+
+## Datos Importantes del Autor
+
+- **Nombre**: Emmanuel
+- **GitHub**: [Emmanueldor8](https://github.com/Emmanueldor8)
+- **Repositorio**: [frontend-carlos](https://github.com/Emmanueldor8/frontend-carlos)
