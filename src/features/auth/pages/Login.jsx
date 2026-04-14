@@ -18,11 +18,29 @@ export default function Login() {
   const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const isPasswordValid = password.length >= 6;
 
-  // 🔥 LOGIN SIMPLIFICADO (FUNCIONA SEGURO)
+  const getLocalRegisteredUser = () => {
+    try {
+      return JSON.parse(
+        localStorage.getItem("frontendRegisteredUser") || "null",
+      );
+    } catch (error) {
+      return null;
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!isEmailValid || !isPasswordValid) return;
+
+    const localUser = getLocalRegisteredUser();
+    if (localUser?.email === email && localUser?.password === password) {
+      const user = { email };
+      localStorage.setItem("token", "frontend-local-token");
+      localStorage.setItem("user", JSON.stringify(user));
+      navigate("/dashboard");
+      return;
+    }
 
     try {
       const { data } = await api.post("/auth/login", {

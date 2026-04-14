@@ -51,6 +51,16 @@ export default function Register() {
     return Object.keys(newErrors).length === 0;
   };
 
+  const saveRegisteredUserLocally = () => {
+    localStorage.setItem(
+      "frontendRegisteredUser",
+      JSON.stringify({
+        email: form.email.trim(),
+        password: form.password,
+      }),
+    );
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -70,6 +80,16 @@ export default function Register() {
       }
     } catch (error) {
       console.error("ERROR REGISTER:", error);
+
+      if (error.response?.status === 404) {
+        saveRegisteredUserLocally();
+        alert(
+          "Registro local completado porque el backend no tiene el endpoint /auth/register. Ahora puedes iniciar sesión.",
+        );
+        navigate("/login");
+        return;
+      }
+
       const message =
         error.response?.data?.message ||
         error.message ||
