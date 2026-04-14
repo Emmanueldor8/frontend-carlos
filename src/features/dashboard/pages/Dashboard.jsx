@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../../services/api";
 
 export default function Dashboard() {
   const [pedidos, setPedidos] = useState([]);
@@ -60,8 +61,7 @@ export default function Dashboard() {
   // =========================
   const getPedidos = async () => {
     try {
-      const res = await fetch("http://localhost:4000/api/pedidos");
-      const data = await res.json();
+      const { data } = await api.get("/pedidos");
       setPedidos(data);
     } catch (error) {
       console.error("Error al obtener pedidos:", error);
@@ -80,12 +80,6 @@ export default function Dashboard() {
 
     if (!validate()) return; // 🔥 BLOQUEA SI HAY ERRORES
 
-    const url = editingId
-      ? `http://localhost:4000/api/pedidos/${editingId}`
-      : "http://localhost:4000/api/pedidos";
-
-    const method = editingId ? "PUT" : "POST";
-
     try {
       const payload = {
         pedido_id: form.pedido_id.trim(),
@@ -94,16 +88,10 @@ export default function Dashboard() {
         subtotal: Number(form.subtotal),
       };
 
-      const res = await fetch(url, {
-        method,
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      if (!res.ok) {
-        throw new Error("Error en la petición");
+      if (editingId) {
+        await api.put(`/pedidos/${editingId}`, payload);
+      } else {
+        await api.post("/pedidos", payload);
       }
 
       resetForm();
@@ -118,9 +106,7 @@ export default function Dashboard() {
   // =========================
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:4000/api/pedidos/${id}`, {
-        method: "DELETE",
-      });
+      await api.delete(`/pedidos/${id}`);
       getPedidos();
     } catch (error) {
       console.error("Error al eliminar:", error);

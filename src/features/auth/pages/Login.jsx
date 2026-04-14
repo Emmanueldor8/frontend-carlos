@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import api from "../../../services/api";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -24,23 +25,10 @@ export default function Login() {
     if (!isEmailValid || !isPasswordValid) return;
 
     try {
-      const res = await fetch("http://localhost:4000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
+      const { data } = await api.post("/auth/login", {
+        email,
+        password,
       });
-
-      // 🔥 IMPORTANTE: validar respuesta
-      if (!res.ok) {
-        throw new Error("Error en el servidor");
-      }
-
-      const data = await res.json();
 
       if (data.success) {
         alert("Login exitoso 🔥");
@@ -58,11 +46,12 @@ export default function Login() {
       }
     } catch (error) {
       console.error("ERROR LOGIN:", error);
+      const message =
+        error.response?.data?.message ||
+        error.message ||
+        "No se pudo conectar al backend. Verifica que el servidor esté corriendo.";
 
-      // 🔥 MENSAJE MÁS CLARO
-      alert(
-        "No se pudo conectar al backend. Verifica que el servidor esté corriendo.",
-      );
+      alert(message);
     }
   };
 
